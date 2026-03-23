@@ -1,3 +1,7 @@
 {
-  "item.professionalrocketry.titanium_ingot": "Titanium Ingot"
+  "item.professionalrocketry.titanium_ingot": "Titanium Ingot",
+  
+  "block.professionalrocketry.titanium_block": "Block of Titanium",
+  
+  "itemGroup.professionalrocketry.professionalrocketry_tab": "Professional Rocketry"
 }

@@ -1,5 +1,6 @@
 package com.arrodevv.datagen;
 
+import com.arrodevv.block.ModBlocks;
 import com.arrodevv.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -15,7 +16,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
-        
+        blockStateModelGenerator.createTrivialCube(ModBlocks.TITANIUM_BLOCK);
     }
 
     @Override

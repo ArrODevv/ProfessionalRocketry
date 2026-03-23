@@ -1,5 +1,7 @@
 package com.arrodevv;
 
+import com.arrodevv.block.ModBlocks;
+import com.arrodevv.item.ModItemGroups;
 import com.arrodevv.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -13,5 +15,8 @@ public class ProfessionalRocketry implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.init();
+		ModBlocks.init();
+
+		ModItemGroups.init();
 	}
 }
