@@ -5,7 +5,7 @@ build/
 out/
 classes/
 
-**/.cache/
+.cache/
 
 # eclipse
 
