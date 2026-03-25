@@ -8,20 +8,29 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.Nullable;
 
 public class ModModelProvider extends FabricModelProvider {
+    private @Nullable BlockModelGenerators blockStateModelGenerator;
+    private @Nullable ItemModelGenerators itemModelGenerator;
+    
     public ModModelProvider(FabricDataOutput output) {
         super(output);
     }
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
-        blockStateModelGenerator.createTrivialCube(ModBlocks.TITANIUM_BLOCK);
+        this.blockStateModelGenerator = blockStateModelGenerator;
+        
+        simpleBlock(ModBlocks.TITANIUM_BLOCK);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerator) {
-        simpleItem(itemModelGenerator, ModItems.TITANIUM_INGOT);
+        this.itemModelGenerator = itemModelGenerator;
+        
+        simpleItem(ModItems.TITANIUM_INGOT);
     }
 
     @Override
@@ -29,7 +38,13 @@ public class ModModelProvider extends FabricModelProvider {
         return "ProfessionalRocketryModelProvider";
     }
     
-    private void simpleItem(ItemModelGenerators itemModelGenerator, Item item) {
+    private void simpleItem(Item item) {
+        assert itemModelGenerator != null;
         itemModelGenerator.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
+    }
+    
+    private void simpleBlock(Block block) {
+        assert blockStateModelGenerator != null;
+        blockStateModelGenerator.createTrivialCube(block);
     }
 }

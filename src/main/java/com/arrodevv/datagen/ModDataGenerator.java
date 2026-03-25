@@ -9,5 +9,9 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		
 		pack.addProvider(ModModelProvider::new);
+		pack.addProvider(ModRecipeProvider::new);
+		pack.addProvider(ModBlockLootTableProvider::new);
+		pack.addProvider(ModTagProvider.Item::new);
+		pack.addProvider(ModTagProvider.Block::new);
 	}
 }
